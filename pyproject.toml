@@ -1,0 +1,20 @@
+[project]
+name = "exit"
+version = "exit"
+description = "Default template for PDM package"
+authors = [
+    {name = "Shah Mahdi Hasan", email = "shah@predelo.com"},
+]
+dependencies = [
+    "numpy",
+    "pillow",
+    "plotly",
+    "nbformat==4.2.0",
+]
+requires-python = ">= 3.11"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
