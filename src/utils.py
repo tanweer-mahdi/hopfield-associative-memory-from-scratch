@@ -1,30 +1,35 @@
 from PIL import Image, ImageDraw, ImageFont
 import numpy as np
+import random
+
 
 # Function to generate 32x32 black and white image for a given character (number or alphabet)
-def generate_image(character, font_path=None, size=(32, 32)):
+def generate_image(character, font_path=None, size=(64, 64)):
     # Create a new blank image (black background)
-    img = Image.new('L', size, color=0)  # 'L' for grayscale mode, 0 for black
+    img = Image.new("L", size, color=0)  # 'L' for grayscale mode, 0 for black
     
     # Initialize drawing context
     draw = ImageDraw.Draw(img)
     
     # Load a font (optional: you can provide a custom font path)
     if font_path:
-        font = ImageFont.truetype(font_path, 24)  # Font size 24 is appropriate for 32x32
+        font = ImageFont.truetype(font_path, 40)  # Adjust font size as needed
     else:
         font = ImageFont.load_default()  # Use default bitmap font if none is provided
     
-    # Get size of the character to center it
-    text_size = draw.textbbox((0, 0), character, font=font)
+    # Get the bounding box of the character
+    text_bbox = draw.textbbox((0, 0), character, font=font)
+    text_width = text_bbox[2] - text_bbox[0]
+    text_height = text_bbox[3] - text_bbox[1]
     
-    # Calculate the position to center the character
-    position = ((size[0] - text_size[0]) // 2, (size[1] - text_size[1]) // 2)
+    # Calculate position to center the text in the image
+    position = ((size[0] - text_width) // 2, (size[1] - text_height) // 2)
     
-    # Draw the character (white color)
+    # Draw the character (white color) at the centered position
     draw.text(position, character, fill=255, font=font)
     
-    return np.array(img)
+    return np.array(img.rotate(random.randint(-90,90)))
+
 
 
 def add_noise(pattern, noise_level=0.1):

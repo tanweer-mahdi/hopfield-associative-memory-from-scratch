@@ -10,6 +10,7 @@ dependencies = [
     "pillow",
     "plotly",
     "nbformat==4.2.0",
+    "scikit-image>=0.24.0",
 ]
 requires-python = ">= 3.11"
 readme = "README.md"
