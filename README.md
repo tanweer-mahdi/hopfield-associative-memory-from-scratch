@@ -3,6 +3,6 @@ A rudimentary implementation of Hopfield network (aka Associative Memory) traine
 
 Deliberately used very declarative style and put everything inside the notebook. This is just a demo to color the differences between modern learning and how learning used to look like in the 80s. 
 
-Hopfield networks work better with complex patterns IMO. Due to the associative memory, the location of the prominent aspects of the pattern within a string (or image for that matter) influences the performance a lot. These are all solved problmes btw.
+Hopfield networks are known to perform poorly with random patterns. Due to the associative memory, the location of the prominent aspects of the pattern within a string (or image for that matter) influences the performance a lot. The symmetry, strong internal organization all effects the update via Hebbian learning, sunsequently affects the performance of the retrieval.
 
 This is a good study on the recent advancements in Hopfield networks: https://www.nature.com/articles/s42254-023-00595-y
